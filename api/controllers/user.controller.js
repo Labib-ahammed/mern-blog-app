@@ -1,6 +1,7 @@
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import User from "../models/user.model.js";
+import { response } from "express";
 export const test = (req, res) => {
   res.json({ message: "API working fine" });
 };
@@ -65,3 +66,11 @@ export const deleteUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const signout = (req, res, next) =>{
+  try {
+    res.clearCookie('access_token').status(200).json('User has been signed out')
+  } catch (error) {
+    next(error)
+  }
+}

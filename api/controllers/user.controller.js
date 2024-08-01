@@ -1,7 +1,7 @@
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import User from "../models/user.model.js";
-import { response } from "express";
+
 export const test = (req, res) => {
   res.json({ message: "API working fine" });
 };

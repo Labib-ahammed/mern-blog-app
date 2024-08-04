@@ -44,7 +44,7 @@ const PostPage = () => {
         {post && post.title}
       </h1>
       <Link to={`/search?category=${post && post.category}`} className="self-center mt-5">
-        <Button color='gray' pill size='x5'>{post && post.category}</Button>
+        <Button color='gray' pill size='x5' className="p-3">{post && post.category}</Button>
       </Link>
       <img src={post && post.image} alt={post && post.title} className="mt-10 p-3 max-h-[500px] w-full object-cover" />
       <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-x5">

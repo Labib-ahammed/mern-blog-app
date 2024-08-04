@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import { Button, Textarea } from "flowbite-react";
 
-const Comment = ({ comment, onLike, onEdit }) => {
+const Comment = ({ comment, onLike, onEdit, onDelete }) => {
   const [user, setUser] = useState({});
   const { currentUser } = useSelector((state) => state.user);
   const [isEditing, setIsEditing] = useState(false);
@@ -26,9 +26,9 @@ const Comment = ({ comment, onLike, onEdit }) => {
 
   const handleEdit = async () => {
     setIsEditing(true);
-    setEditedComment(comment.content)
+    setEditedComment(comment.content);
   };
-  const handleSave = async ()=>{
+  const handleSave = async () => {
     try {
       const res = await fetch(`/api/comment/editComment/${comment._id}`, {
         method: "PUT",
@@ -37,12 +37,14 @@ const Comment = ({ comment, onLike, onEdit }) => {
       });
       if (res.ok) {
         setIsEditing(false);
-        onEdit(comment, editedComment)
+        onEdit(comment, editedComment);
       }
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
+
+
   return (
     <div className="flex p-4 border-b dark:border-gray-600 text-sm">
       <div className="flex-shrink-0 mr-3">
@@ -64,17 +66,31 @@ const Comment = ({ comment, onLike, onEdit }) => {
         </div>
         {isEditing ? (
           <>
-          <Textarea
-            className="mb-2"
-            value={editedComment}
-            onChange={(e) => setEditedComment(e.target.value)}
-          />
-          <div className="flex justify-end gap-3 mt-3 text-xs">
-            <Button type="button" size='sm' gradientDuoTone='purpleToBlue' onClick={handleSave}>Save</Button>
-            <Button type="button" size='sm' gradientDuoTone='purpleToBlue' outline onClick={()=> setIsEditing(false)}>Cancel</Button>
-          </div>
+            <Textarea
+              className="mb-2"
+              value={editedComment}
+              onChange={(e) => setEditedComment(e.target.value)}
+            />
+            <div className="flex justify-end gap-3 mt-3 text-xs">
+              <Button
+                type="button"
+                size="sm"
+                gradientDuoTone="purpleToBlue"
+                onClick={handleSave}
+              >
+                Save
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                gradientDuoTone="purpleToBlue"
+                outline
+                onClick={() => setIsEditing(false)}
+              >
+                Cancel
+              </Button>
+            </div>
           </>
-          
         ) : (
           <>
             <p className="text-gray-500 pb-2 dark:text-gray-300">
@@ -101,13 +117,22 @@ const Comment = ({ comment, onLike, onEdit }) => {
               </p>
               {currentUser &&
                 (currentUser._id === comment.userId || currentUser.isAdmin) && (
-                  <button
-                    onClick={handleEdit}
-                    type="button"
-                    className="text-gray-400 hover:text-blue-500"
-                  >
-                    Edit
-                  </button>
+                  <>
+                    <button
+                      onClick={handleEdit}
+                      type="button"
+                      className="text-gray-400 hover:text-blue-500"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={()=> onDelete(comment._id)}
+                      type="button"
+                      className="text-gray-400 hover:text-red-500"
+                    >
+                      Delete
+                    </button>
+                  </>
                 )}
             </div>
           </>

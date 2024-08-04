@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Sidebar } from "flowbite-react";
-import { HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiUser } from "react-icons/hi";
+import {
+  HiAnnotation,
+  HiArrowSmRight,
+  HiDocumentText,
+  HiOutlineUserGroup,
+  HiUser,
+} from "react-icons/hi";
 import { signoutSuccess } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -21,23 +27,21 @@ const DashSidebar = () => {
 
   // signout functionality
 
-  const handleSignout = async ()=>{
+  const handleSignout = async () => {
     try {
-      const res = await fetch('/api/user/signout',{
-        method: 'POST'
-      })
-      const data = await res.json()
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json();
       if (!res.ok) {
-        console.log('Error signing out')
-      } else{
-        dispatch(signoutSuccess())
+        console.log("Error signing out");
+      } else {
+        dispatch(signoutSuccess());
       }
     } catch (error) {
       console.log(error.message);
     }
-    
-  }
-
+  };
 
   return (
     <Sidebar className="w-full md:w-56">
@@ -49,27 +53,45 @@ const DashSidebar = () => {
               icon={HiUser}
               label={currentUser.isAdmin ? "Admin" : "User"}
               labelColor="dark"
-              as='div'
+              as="div"
             >
               Profile
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to='/dashboard?tab=posts' as='div'>
-            <Sidebar.Item active={tab === 'posts'} icon={HiDocumentText}>
-              Posts
-            </Sidebar.Item>
-          </Link>
+            <Link to="/dashboard?tab=posts" as="div">
+              <Sidebar.Item active={tab === "posts"} icon={HiDocumentText}>
+                Posts
+              </Sidebar.Item>
+            </Link>
           )}
           {currentUser.isAdmin && (
-            <Link to='/dashboard?tab=users' as='div'>
-            <Sidebar.Item active={tab === 'users'} icon={HiOutlineUserGroup}>
-              Users
-            </Sidebar.Item>
-          </Link>
+            <>
+              <Link to="/dashboard?tab=users" as="div">
+                <Sidebar.Item
+                  active={tab === "users"}
+                  icon={HiOutlineUserGroup}
+                >
+                  Users
+                </Sidebar.Item>
+              </Link>
+
+              <Link to="/dashboard?tab=comments" as="div">
+                <Sidebar.Item
+                  active={tab === "comments"}
+                  icon={HiAnnotation}
+                >
+                  Comments
+                </Sidebar.Item>
+              </Link>
+            </>
           )}
-          
-          <Sidebar.Item onClick={handleSignout} icon={HiArrowSmRight} className="cursor-pointer">
+
+          <Sidebar.Item
+            onClick={handleSignout}
+            icon={HiArrowSmRight}
+            className="cursor-pointer"
+          >
             Sign Out
           </Sidebar.Item>
         </Sidebar.ItemGroup>

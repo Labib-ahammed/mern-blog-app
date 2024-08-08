@@ -2,54 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    height: 100vh;
+body {
+  height: 100vh;
 }
 
-.ql-editor{
-    font-size: 1.05rem;
+.ql-editor {
+  font-size: 1.05rem;
 }
 
-.post-content{
-    margin-bottom: 0.5rem;
+.post-content {
+  margin-bottom: 0.5rem;
 }
-.post-content h1{
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: sans-serif;
-    margin: 1.5rem 0;
-}
-
-.post-content h2{
-    font-size: 1.6rem;
-    font-family: sans-serif;
-    font-weight: 600;
-    margin: 1.5rem 0;
+.post-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  margin: 1.5rem 0;
 }
 
-.post-content h3{
-    font-size: 1.4rem;
-    font-family: sans-serif;
-    font-weight: 500;
-    margin: 1.5rem 0;
+.post-content h2 {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  margin: 1.5rem 0;
 }
 
-.post-content a{
-    color: rgb(73, 149, 199);
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 600;
+.post-content h3 {
+  font-size: 1.4rem;
+  font-family: sans-serif;
+  font-weight: 500;
+  margin: 1.5rem 0;
 }
 
-.post-content a:hover{
-    text-decoration: underline;
+.post-content a {
+  color: rgb(73, 149, 199);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.post-content ol li{
-    list-style-type: number;
-    margin: 1rem;
+.post-content a:hover {
+  text-decoration: underline;
 }
 
-.post-content ul li{
-    list-style-type: circle;
+.post-content ol li {
+  list-style-type: number;
+  margin: 1rem;
+}
+
+.post-content ul li {
+  list-style-type: circle;
 }

@@ -104,7 +104,7 @@ const CreatePost = () => {
             <option value="mangareview">Manga review</option>
             <option value="bigthree">Big three anime</option>
             <option value="onepiece">One Piece</option>
-            <option value="onepiece">Anime</option>
+            <option value="anime">Anime</option>
           </Select>
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">

@@ -14,6 +14,8 @@ import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/PostPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Search from "./pages/Search";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Dmca from "./pages/Dmca";
 function App() {
   return (
     <BrowserRouter>
@@ -21,8 +23,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/dmca" element={<Dmca />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
         <Route path="/post/:postSlug" element={<PostPage />} />

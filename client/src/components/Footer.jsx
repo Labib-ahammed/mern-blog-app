@@ -43,10 +43,10 @@ const FooterComp = () => {
               <Footer.Title title="legal" />
               <Footer.LinkGroup col>
                 <Footer.Link>
-                  <Link to="privacy-policy">Privacy Policy</Link>
+                  <Link to="/privacypolicy">Privacy Policy</Link>
                 </Footer.Link>
                 <Footer.Link>
-                  <Link to="dmca">DMCA</Link>
+                  <Link to="/dmca">DMCA</Link>
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>

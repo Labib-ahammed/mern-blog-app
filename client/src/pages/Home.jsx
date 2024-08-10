@@ -23,13 +23,12 @@ const Home = () => {
     setSlide((slide) => (slide === 0 ? posts.length - 1 : slide - 1));
   };
 
-  useEffect(()=>{
-    if(autoSlide === null || false){
-      return;
+  useEffect(() => {
+    if (autoSlide) {
+      const slideInterval = setInterval(nextSlide, autoSlideInterval);
+      return () => clearInterval(slideInterval);
     }
-    const slideInterval = setInterval(nextSlide, autoSlideInterval)
-    return ()=> clearInterval(slideInterval)
-  },[])
+  }, [nextSlide]);
 
   return (
     <div>

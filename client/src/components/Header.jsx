@@ -50,6 +50,10 @@ const Header = () => {
     navigate(`/search?${searchQuery}`)
   }
 
+  const gotoSearch = ()=>{
+    navigate('/search')
+  }
+
   return (
     <Navbar className="border-b-2">
       <Link
@@ -71,8 +75,8 @@ const Header = () => {
           onChange={(e)=> setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
-        <AiOutlineSearch />
+      <Button className="w-12 h-10 lg:hidden" color="gray" pill onClick={gotoSearch}>
+        <AiOutlineSearch/>
       </Button>
       <div className="flex gap-2 md:order-2">
         <Button
@@ -128,6 +132,12 @@ const Header = () => {
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
           <Link to="/about">About</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/privacypolicy"} as={"div"}>
+          <Link to="/privacypolicy">Privacy Policy</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/dmca"} as={"div"}>
+          <Link to="/dmca">DMCA</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

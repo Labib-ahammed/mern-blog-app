@@ -16,6 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Search from "./pages/Search";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Dmca from "./pages/Dmca";
+import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/dmca" element={<Dmca />} />

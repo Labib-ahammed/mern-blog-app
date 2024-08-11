@@ -18,6 +18,7 @@ body {
   font-weight: 700;
   font-family: sans-serif;
   margin: 1.5rem 0;
+  text-align: center;
 }
 
 .post-content h2 {
@@ -32,6 +33,12 @@ body {
   font-family: sans-serif;
   font-weight: 500;
   margin: 1.5rem 0;
+}
+.post-content img{
+  margin: 3px auto;
+  aspect-ratio: 3/2;
+  min-width: 600px;
+  min-width: 400px;
 }
 
 .post-content a {
@@ -52,4 +59,8 @@ body {
 
 .post-content ul li {
   list-style-type: circle;
+}
+
+.dark .post-content p span{
+  color: white;
 }

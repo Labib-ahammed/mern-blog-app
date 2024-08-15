@@ -37,8 +37,8 @@ body {
 .post-content img{
   margin: 3px auto;
   aspect-ratio: 3/2;
-  min-width: 600px;
-  min-width: 400px;
+  min-width: 500px;
+  min-width: 300px;
 }
 
 .post-content a {
